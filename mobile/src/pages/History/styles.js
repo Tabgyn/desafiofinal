@@ -48,6 +48,13 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: colors.fontPrimary,
   },
+
+  emptyText: {
+    color: colors.fontPrimary,
+    fontSize: 16,
+    textAlign: 'center',
+    marginTop: 100,
+  },
 });
 
 export default styles;

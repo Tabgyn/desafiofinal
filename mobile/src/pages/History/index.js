@@ -5,7 +5,7 @@ import {
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import NumberFormat from 'react-number-format';
-import { distanceInWordsStrict } from 'date-fns';
+import { distanceInWords } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -31,7 +31,11 @@ class History extends Component {
   }
 
   getElapsedTime = (value) => {
-    const formated = distanceInWordsStrict(new Date(), value, { locale: pt, addSuffix: true });
+    const date = new Date();
+    const offSet = date.getTimezoneOffset() / 60;
+    date.setHours(date.getHours() - offSet);
+
+    const formated = distanceInWords(date, value, { locale: pt, addSuffix: true });
 
     return formated;
   };
@@ -70,7 +74,11 @@ class History extends Component {
 )}
         />
         <View style={styles.cardContainer}>
-          <FlatList data={orders.data} keyExtractor={item => String(item.id)} renderItem={this.renderItem} />
+          {orders.data.length === 0 ? (
+            <Text style={styles.emptyText}>Você não possui pedidos</Text>
+          ) : (
+            <FlatList data={orders.data} keyExtractor={item => String(item.id)} renderItem={this.renderItem} />
+          )}
         </View>
       </View>
     );

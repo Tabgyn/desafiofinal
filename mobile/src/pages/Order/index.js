@@ -5,6 +5,7 @@ import {
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import NumberFormat from 'react-number-format';
+import cep from 'cep-promise';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -32,6 +33,19 @@ class Order extends Component {
     street: '',
     number: '',
     neighborhood: '',
+  };
+
+  handleZip = async () => {
+    try {
+      const { zip } = this.state;
+      const result = await cep(zip);
+
+      this.setState({ zip: result.cep });
+      this.setState({ street: result.street });
+      this.setState({ neighborhood: result.neighborhood });
+    } catch (error) {
+      console.tron.log(error.message);
+    }
   };
 
   handleSubmit = () => {
@@ -99,6 +113,7 @@ class Order extends Component {
             <TextInput
               value={zip}
               onChangeText={text => this.setState({ zip: text })}
+              onBlur={this.handleZip}
               style={styles.input}
               placeholder="Qual seu CEP?"
               keyboardType="number-pad"

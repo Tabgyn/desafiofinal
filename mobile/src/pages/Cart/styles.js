@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
   },
 
-  emptyCartText: {
+  emptyText: {
     color: colors.fontPrimary,
     fontSize: 16,
     textAlign: 'center',

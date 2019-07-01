@@ -74,7 +74,7 @@ class Cart extends Component {
         />
         <View style={styles.cardContainer}>
           {cart.data.length === 0 ? (
-            <Text style={styles.emptyCartText}>Seu carrinho está vazio</Text>
+            <Text style={styles.emptyText}>Seu carrinho está vazio</Text>
           ) : (
             <FlatList data={cart.data} keyExtractor={item => item.id} renderItem={this.renderItem} />
           )}
