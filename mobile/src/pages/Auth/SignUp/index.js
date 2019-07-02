@@ -95,7 +95,7 @@ class SignUp extends Component {
                 onSubmitEditing={() => this.handleSubmit}
               />
               <TouchableOpacity onPress={this.handleSubmit} style={styles.button} activeOpacity={0.8}>
-                <Text style={styles.buttonText}>Entrar</Text>
+                <Text style={styles.buttonText}>Criar conta</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => navigation.navigate('SignIn')} style={styles.link} activeOpacity={0.8}>
                 <Text style={styles.buttonText}>Já tenho login</Text>

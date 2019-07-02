@@ -8,6 +8,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
+  avoidView: {
+    flex: 1,
+    alignItems: 'stretch',
+    justifyContent: 'center',
+  },
+
   titleStyles: {
     marginLeft: 50,
   },
@@ -18,10 +24,6 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
 
-  cardContainer: {
-    flex: 1,
-  },
-
   input: {
     fontSize: 15,
     backgroundColor: colors.white,
@@ -29,7 +31,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: metrics.basePadding,
     paddingVertical: 15,
     marginBottom: metrics.baseMargin,
-    marginHorizontal: metrics.baseMargin * 2,
     shadowColor: '#000',
     shadowOffset: { width: 2, height: 5 },
     shadowOpacity: 0.2,
@@ -45,7 +46,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: metrics.basePadding,
     paddingTop: 15,
     marginBottom: metrics.baseMargin,
-    marginHorizontal: metrics.baseMargin * 2,
     shadowColor: '#000',
     shadowOffset: { width: 2, height: 5 },
     shadowOpacity: 0.2,
@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
 
     marginBottom: getBottomSpace(),
-    paddingHorizontal: metrics.basePadding,
     paddingVertical: metrics.basePadding,
     backgroundColor: colors.transparent,
   },

@@ -69,7 +69,7 @@ class History extends Component {
           titleStyles={styles.titleStyles}
           leftContent={(
             <TouchableOpacity onPress={() => navigation.navigate('Product')} hitSlop={{ top: 20 }}>
-              <Icon name="chevron-left" color="#fff" size={24} />
+              <Icon name="chevron-left" color="#fff" size={14} />
             </TouchableOpacity>
 )}
         />
@@ -77,7 +77,13 @@ class History extends Component {
           {orders.data.length === 0 ? (
             <Text style={styles.emptyText}>Você não possui pedidos</Text>
           ) : (
-            <FlatList data={orders.data} keyExtractor={item => String(item.id)} renderItem={this.renderItem} />
+            <FlatList
+              data={orders.data}
+              keyExtractor={item => String(item.id)}
+              renderItem={this.renderItem}
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={styles.listPadding}
+            />
           )}
         </View>
       </View>

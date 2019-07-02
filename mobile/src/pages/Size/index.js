@@ -10,12 +10,8 @@ import { bindActionCreators } from 'redux';
 
 import CartActions from '~/store/ducks/cart';
 
-import styles from './styles';
-import pequena from '~/assets/tamanhos/tamanho-p.png';
-import media from '~/assets/tamanhos/tamanho-m.png';
-import grande from '~/assets/tamanhos/tamanho-g.png';
-import gigante from '~/assets/tamanhos/tamanho-gg.png';
 import Header from '~/components/Header';
+import styles from './styles';
 import { metrics } from '~/styles';
 
 class Type extends Component {
@@ -40,33 +36,16 @@ class Type extends Component {
   };
 
   renderItem = ({ item, index }) => {
-    const { currentType, currentProduct } = this.props;
-    let image;
-    if (item.name === 'Tamanho: Pequena') {
-      image = pequena;
-    } else if (item.name === 'Tamanho: Média') {
-      image = media;
-    } else if (item.name === 'Tamanho: Grande') {
-      image = grande;
-    } else {
-      image = gigante;
-    }
+    const { currentType } = this.props;
 
     return (
       <TouchableOpacity
-        style={[
-          styles.cardItem,
-          index % 2 === 0 ? { marginRight: metrics.baseMargin } : { marginRight: 0, marginLeft: 0 },
-        ]}
+        style={[styles.cardItem, index % 2 === 0 ? { marginRight: metrics.baseMargin } : { marginHorizontal: 0 }]}
         activeOpacity={0.8}
         onPress={() => this.handleAddItem(item)}
       >
         <View style={styles.cardImage}>
-          {currentProduct.name === 'Pizzas' ? (
-            <Image source={image} />
-          ) : (
-            <Image source={{ uri: item.image.url }} style={styles.cardImage} resizeMode="contain" />
-          )}
+          <Image source={{ uri: item.image.url }} style={styles.cardImage} resizeMode="contain" resizeMethod="scale" />
         </View>
         <Text style={styles.cardTitle}>{item.name}</Text>
         <NumberFormat
@@ -109,6 +88,8 @@ class Type extends Component {
             keyExtractor={item => String(item.id)}
             renderItem={this.renderItem}
             numColumns={2}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.listPadding}
           />
         </View>
       </View>

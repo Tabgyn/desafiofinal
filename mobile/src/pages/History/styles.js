@@ -11,6 +11,10 @@ const styles = StyleSheet.create({
     marginLeft: 50,
   },
 
+  listPadding: {
+    paddingHorizontal: 20,
+  },
+
   cardContainer: {
     flex: 1,
   },
@@ -23,7 +27,6 @@ const styles = StyleSheet.create({
     borderRadius: metrics.baseRadius * 4,
     padding: metrics.basePadding / 1.5,
     marginBottom: metrics.baseMargin,
-    marginHorizontal: metrics.baseMargin * 2,
     shadowColor: '#000',
     shadowOffset: { width: 2, height: 5 },
     shadowOpacity: 0.2,

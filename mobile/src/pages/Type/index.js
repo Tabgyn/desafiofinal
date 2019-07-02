@@ -70,6 +70,8 @@ class Type extends Component {
             keyExtractor={item => String(item.id)}
             renderItem={this.renderItem}
             numColumns={2}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.listPadding}
           />
         </View>
       </View>

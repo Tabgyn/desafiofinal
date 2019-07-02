@@ -26,7 +26,6 @@ class Product extends Component {
   };
 
   componentDidMount() {
-    // AsyncStorage.clear();
     const { loadProductsRequest, signOutRequest } = this.props;
 
     // signOutRequest();
@@ -63,20 +62,25 @@ class Product extends Component {
           title="Pizzaria Don Juan"
           titleStyles={styles.titleStyles}
           leftContent={(
-            <TouchableOpacity onPress={() => navigation.navigate('History')} hitSlop={{top: 20}}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('History')}
+            >
               <Icon name="history" color="#fff" size={24} />
             </TouchableOpacity>
 )}
           rightContent={(
-            <TouchableOpacity style={styles.cartButton} onPress={() => navigation.navigate('Cart')}>
+            <TouchableOpacity
+              style={styles.cartButton}
+              onPress={() => navigation.navigate('Cart')}
+            >
               <Icon name="shopping-bag" color="#fff" size={18} />
               <View style={styles.badge}>
                 {!!cart.data.length && (
                   <View style={styles.badgeButton}>
-                    { cart.data.length > 9 ? (
-                      <Text style={styles.badgeText}>9+</Text>) : (
-                        <Text style={styles.badgeText}>{cart.data.length}</Text>
-                    )}
+                    { cart.data.length > 9
+                      ? (<Text style={styles.badgeText}>9+</Text>)
+                      : (<Text style={styles.badgeText}>{cart.data.length}</Text>)
+                    }
                   </View>
                 )}
               </View>
@@ -84,10 +88,12 @@ class Product extends Component {
 )}
         />
         <View style={styles.cardContainer}>
-          <FlatList 
-            data={products.data} 
-            keyExtractor={item => String(item.id)} 
-            renderItem={this.renderItem} 
+          <FlatList
+            data={products.data}
+            keyExtractor={item => String(item.id)}
+            renderItem={this.renderItem}
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.listPadding}
           />
         </View>
       </View>

@@ -76,17 +76,25 @@ class Cart extends Component {
           {cart.data.length === 0 ? (
             <Text style={styles.emptyText}>Seu carrinho está vazio</Text>
           ) : (
-            <FlatList data={cart.data} keyExtractor={item => item.id} renderItem={this.renderItem} />
+            <FlatList
+              data={cart.data}
+              keyExtractor={item => item.id}
+              renderItem={this.renderItem}
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={styles.listPadding}
+            />
           )}
         </View>
         <View style={styles.actionBar}>
           <TouchableOpacity style={styles.moreButton} onPress={() => navigation.navigate('Product')}>
             <Icon name="cart-plus" color="#666" size={20} />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.doneButton} onPress={() => navigation.navigate('Order')}>
-            <Text style={styles.doneButtonText}>realizar pedido</Text>
-            <Icon name="chevron-right" color="#fff" size={14} />
-          </TouchableOpacity>
+          {!!cart.data.length && (
+            <TouchableOpacity style={styles.doneButton} onPress={() => navigation.navigate('Order')}>
+              <Text style={styles.doneButtonText}>realizar pedido</Text>
+              <Icon name="chevron-right" color="#fff" size={14} />
+            </TouchableOpacity>
+          )}
         </View>
       </View>
     );

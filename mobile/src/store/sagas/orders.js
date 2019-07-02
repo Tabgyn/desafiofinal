@@ -9,7 +9,7 @@ import OrderActions from '../ducks/orders';
 
 export function* loadOrders() {
   try {
-    const response = yield call(api.get, 'orders');
+    const response = yield call(api.get, 'userorders');
 
     yield put(OrderActions.loadOrdersSuccess(response.data));
   } catch (error) {
