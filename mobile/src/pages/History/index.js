@@ -68,7 +68,15 @@ class History extends Component {
           title="Meus pedidos"
           titleStyles={styles.titleStyles}
           leftContent={(
-            <TouchableOpacity onPress={() => navigation.navigate('Product')} hitSlop={{ top: 20 }}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Product')}
+              hitSlop={{
+                top: 20,
+                bottom: 20,
+                left: 20,
+                right: 20,
+              }}
+            >
               <Icon name="chevron-left" color="#fff" size={14} />
             </TouchableOpacity>
 )}
