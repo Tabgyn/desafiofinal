@@ -10,7 +10,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
 
-  width: 730px;
+  width: 980px;
   padding: 30px 0;
   margin: 0 auto;
 

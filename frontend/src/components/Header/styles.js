@@ -1,14 +1,20 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
+export const Container = styled.header`
   height: 72px;
   background: #0b2031;
-  padding: 0 250px;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 980px;
+  height: 72px;
+  margin: 0 auto;
+  padding: 0 30px;
 
   h1 {
     font-size: 18px;
