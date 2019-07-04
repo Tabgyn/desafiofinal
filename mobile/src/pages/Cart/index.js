@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  View, TouchableOpacity, FlatList, Image, Text,
+  View, TouchableOpacity, FlatList, Image, Text, Alert,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -25,9 +25,22 @@ class Cart extends Component {
   };
 
   handleDelete = (id) => {
-    const { removeItemRequest } = this.props;
+    Alert.alert(
+      'Excluir item',
+      'Deseja realmente excluir o item?',
+      [
+        { text: 'Não', onPress: () => {}, style: 'cancel' },
+        {
+          text: 'Sim',
+          onPress: () => {
+            const { removeItemRequest } = this.props;
 
-    removeItemRequest(id);
+            removeItemRequest(id);
+          },
+        },
+      ],
+      { cancelable: false },
+    );
   };
 
   renderItem = ({ item }) => (
