@@ -12,6 +12,7 @@ Route.group(() => {
   Route.resource('orders', 'OrderController')
     .apiOnly()
     .validator(new Map([[['orders.store'], 'Order']]))
+  Route.resource('userorders', 'UserOrderController').apiOnly()
   Route.resource('products', 'ProductController').apiOnly()
   Route.resource('products.types', 'ProductTypeController').apiOnly()
   Route.resource('types', 'TypeController').apiOnly()

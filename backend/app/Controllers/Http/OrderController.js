@@ -2,7 +2,7 @@
 
 const Order = use('App/Models/Order')
 const OrderItem = use('App/Models/OrderItem')
-// const Ws = use('Ws')
+const Ws = use('Ws')
 
 /**
  * Resourceful controller for interacting with orders
@@ -56,10 +56,9 @@ class OrderController {
       })
     )
 
-    // const socket = Ws.getChannel('orders').topic('orders')
-    // console.log(socket)
+    const socket = Ws.getChannel('orders').topic('orders')
 
-    // socket.broadcast('new:order')
+    if (socket) socket.broadcast('new:order')
 
     return order
   }
