@@ -28,7 +28,7 @@
     "@adonisjs/validator": "^5.0.6",
     "@adonisjs/websocket": "^1.0.11",
     "adonis-acl": "^1.1.1",
-    "aws-sdk": "^2.485.0",
+    "aws-sdk": "^2.814.0",
     "pg": "^7.11.0"
   },
   "devDependencies": {
